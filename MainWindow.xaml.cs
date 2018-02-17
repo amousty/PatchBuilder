@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Forms;
+
+
+
 
 namespace PatchBuilder
 {
@@ -28,7 +22,10 @@ namespace PatchBuilder
                 "Please, provide a correct issue id.",
                 "Please, provide a correct ticket reference.",
                 "Please, fill the description.",
+                "Path specified already existing.",
         };
+        private OpenFileDialog openFileDialog1;
+        private FolderBrowserDialog folderBrowserDialog1;
 
         public MainWindow()
         {
@@ -44,12 +41,16 @@ namespace PatchBuilder
                 // Everything is ok ! We could build the result into the patch name.
                 txtB_patchName.IsReadOnly = false;
                 txtB_patchName.Text = txtB_IssueID.Text + "[" + txtB_ticketRef.Text + "] " + txtB_description.Text;
+
+                // Build launched
+                buildFolder();
             }
-            else {
+            else
+            {
                 // Display error message. 
 
                 // Clean description.
-                txtB_patchName.Text = "Error code : " + checkEverythingOk + ".\n" + ErrorMessage[checkEverythingOk*-1];
+                txtB_patchName.Text = "Error code : " + checkEverythingOk + ".\n" + ErrorMessage[checkEverythingOk * -1];
                 txtB_patchName.IsReadOnly = true;
             }
         }
@@ -73,7 +74,7 @@ namespace PatchBuilder
                         // Check if the issueid is correct
                         if (!txtB_description.Text.Equals(""))
                         {
-                            
+
                         }
                         else
                         {
@@ -87,12 +88,14 @@ namespace PatchBuilder
                         errorCode = -3;
                     }
                 }
-                else {
+                else
+                {
                     // Issue ID is incorrect.
                     errorCode = -2;
                 }
             }
-            else {
+            else
+            {
                 // Check at least one checkbox
                 errorCode = -1;
             }
@@ -100,13 +103,15 @@ namespace PatchBuilder
             return errorCode;
         }
 
-        private bool checkIssueID(string val) {
+        private bool checkIssueID(string val)
+        {
             bool isOk = false;
             int tmpI = -1;
             if (val.Count(f => f == '#') == 2)
             {
-                string [] testInt= val.Split('#');
-                if (int.TryParse(testInt[1], out tmpI)){
+                string[] testInt = val.Split('#');
+                if (int.TryParse(testInt[1], out tmpI))
+                {
                     isOk = true;
                 }
             }
@@ -121,7 +126,7 @@ namespace PatchBuilder
             if (val.Count(f => f == '-') == 1)
             {
                 string[] testInt = val.Split('-');
-                if (testInt[0] is string  && int.TryParse(testInt[1], out tmpI))
+                if (testInt[0] is string && int.TryParse(testInt[1], out tmpI))
                 {
                     isOk = true;
                 }
@@ -144,6 +149,60 @@ namespace PatchBuilder
             txtB_patchName.Text = "";
 
             txtB_patchName.IsReadOnly = true;
+        }
+
+        private void btn_browse_Click(object sender, RoutedEventArgs e)
+        {
+            
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+
+            // Set the help text description for the FolderBrowserDialog.
+            this.folderBrowserDialog1.Description =
+                "Select the directory that you want to use as the default.";
+
+            // Do not allow the user to create new files via the FolderBrowserDialog.
+            this.folderBrowserDialog1.ShowNewFolderButton = false;
+
+            // Show the FolderBrowserDialog.
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+            //if (result == DialogResult)
+            //{
+                string folderName = @"c:\temp\";
+                // No file is opened, bring up openFileDialog in selected path.
+                openFileDialog1.InitialDirectory = folderName;
+                openFileDialog1.FileName = null;
+                txtB_browseDirectory.Text = folderBrowserDialog1.SelectedPath;
+               //openMenuItem.PerformClick();
+            //}
+        }
+
+        private int buildFolder()
+        {
+            string path = txtB_browseDirectory.Text;
+            int returnValue = 0;
+            string newDirectory = path + "/" + txtB_patchName.Text + "/";
+            try
+            {
+                // We need to iterate for each type selected.
+                
+                // Determine whether the directory exists.
+                if (Directory.Exists(newDirectory))
+                {
+                    // Path already existing. 
+                    return -5;
+                }
+
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(newDirectory);
+                Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(newDirectory));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+            }
+            finally { }
+            return returnValue;
         }
     }
 }

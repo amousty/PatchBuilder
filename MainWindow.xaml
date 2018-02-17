@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PatchBuilder"
         mc:Ignorable="d"
-        Title="MXP Patch builder" Height="350" Width="455.162">
+        Title="MXP Patch builder" Height="350" Width="455.162" ResizeMode="NoResize">
     <Grid>
         <Label x:Name="lbl_patchName" Content="Patch name" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="txtB_patchName" HorizontalAlignment="Left" Height="50" Margin="112,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
@@ -22,13 +22,13 @@
         <TextBox x:Name="txtB_description" HorizontalAlignment="Left" Height="26" Margin="112,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lbl_ticketRef" Content="Ticket reference" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtB_ticketRef" HorizontalAlignment="Left" Height="26" Margin="112,41,0,0" TextWrapping="Wrap" Text="SUP-" VerticalAlignment="Top" Width="120"/>
-        <Image x:Name="img_logo" HorizontalAlignment="Left" Height="153" Margin="254,10,0,0" VerticalAlignment="Top" Width="173" Source="Images/logo.jpg">
+        <Image x:Name="img_logo" HorizontalAlignment="Left" Height="163" Margin="254,0,0,0" VerticalAlignment="Top" Width="185" Source="Images/logo.jpg">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="Images/logo.jpg"/>
             </Image.OpacityMask>
         </Image>
-        <TextBox x:Name="txtB_browseDirectory" HorizontalAlignment="Left" Height="26" Margin="112,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
-        <Button x:Name="btn_browse" Content="Browse" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <TextBox x:Name="txtB_browseDirectory" HorizontalAlignment="Left" Height="26" Margin="112,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" IsReadOnly="True"/>
+        <Button x:Name="btn_browse" Content="Browse" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="btn_browse_Click"/>
 
     </Grid>
 </Window>

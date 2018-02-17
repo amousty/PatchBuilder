@@ -10,7 +10,7 @@
         <Label x:Name="lbl_patchName" Content="Patch name" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="txtB_patchName" HorizontalAlignment="Left" Height="50" Margin="112,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
         <Button x:Name="btn_build" Content="Build" HorizontalAlignment="Left" Margin="112,254,0,0" VerticalAlignment="Top" Width="75" Click="btn_build_Click"/>
-        <Button x:Name="btn_clearAll" Content="Clear data" HorizontalAlignment="Left" Margin="352,254,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btn_clearAll" Content="Clear data" HorizontalAlignment="Left" Margin="352,254,0,0" VerticalAlignment="Top" Width="75" Click="btn_clearAll_Click"/>
         <CheckBox x:Name="chkb_MVC" Content="MVC" HorizontalAlignment="Left" Margin="112,120,0,0" VerticalAlignment="Top" Width="60"/>
         <Label x:Name="lbl_patchType" Content="Type" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="75"/>
         <CheckBox x:Name="chkb_SP" Content="SP" HorizontalAlignment="Left" Margin="177,120,0,0" VerticalAlignment="Top" Width="55"/>

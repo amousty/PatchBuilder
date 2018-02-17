@@ -129,5 +129,21 @@ namespace PatchBuilder
 
             return isOk;
         }
+
+        private void btn_clearAll_Click(object sender, RoutedEventArgs e)
+        {
+            chkb_Web.IsChecked = false;
+            chkb_MVC.IsChecked = false;
+            chkb_Script.IsChecked = false;
+            chkb_SP.IsChecked = false;
+
+            txtB_IssueID.Text = "##";
+            txtB_ticketRef.Text = "SUP-";
+            txtB_description.Text = "";
+            txtB_browseDirectory.Text = "";
+            txtB_patchName.Text = "";
+
+            txtB_patchName.IsReadOnly = true;
+        }
     }
 }

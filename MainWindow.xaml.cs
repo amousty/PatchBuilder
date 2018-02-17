@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
-
+using MahApps.Metro.Controls;
 
 
 
@@ -13,7 +13,7 @@ namespace PatchBuilder
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         string[] ErrorMessage =
         {

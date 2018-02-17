@@ -23,6 +23,7 @@ namespace PatchBuilder
                 "Please, provide a correct ticket reference.",
                 "Please, fill the description.",
                 "Path specified already existing.",
+                "Unable to browse this folder.",
         };
         private OpenFileDialog openFileDialog1;
         private FolderBrowserDialog folderBrowserDialog1;
@@ -166,22 +167,17 @@ namespace PatchBuilder
 
             // Show the FolderBrowserDialog.
             DialogResult result = folderBrowserDialog1.ShowDialog();
-            //if (result == DialogResult)
-            //{
-                string folderName = @"c:\temp\";
-                // No file is opened, bring up openFileDialog in selected path.
-                openFileDialog1.InitialDirectory = folderName;
-                openFileDialog1.FileName = null;
-                txtB_browseDirectory.Text = folderBrowserDialog1.SelectedPath;
-               //openMenuItem.PerformClick();
-            //}
+
+            string folderName = @"c:\temp\";
+            // No file is opened, bring up openFileDialog in selected path.
+            openFileDialog1.InitialDirectory = folderName;
+            openFileDialog1.FileName = null;
+            txtB_browseDirectory.Text = folderBrowserDialog1.SelectedPath;
         }
 
         private int buildFolder()
         {
-            string path = txtB_browseDirectory.Text;
-            int returnValue = 0;
-            string newDirectory = path + "/" + txtB_patchName.Text + "/";
+            string newDirectory = removeChar(txtB_browseDirectory.Text, new char[] { '#' }) + "/" + txtB_patchName.Text + "/";
             try
             {
                 // We need to iterate for each type selected.
@@ -195,14 +191,53 @@ namespace PatchBuilder
 
                 // Try to create the directory.
                 DirectoryInfo di = Directory.CreateDirectory(newDirectory);
-                Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(newDirectory));
+
+                // Now we build the subfolders
+                return buildSubfolder();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine("The process failed: {0}", e.ToString());
+                return -6; // Console.WriteLine("The process failed: {0}", e.ToString());
             }
-            finally { }
+        }
+
+        private int buildSubfolder()
+        {
+            string newDirectory = removeChar(txtB_browseDirectory.Text, new char[] { '#' }) + "/" + txtB_patchName.Text + "/";
+            int returnValue = 0;
+
+            if (chkb_MVC.IsChecked == true)
+            {
+                DirectoryInfo di = Directory.CreateDirectory(newDirectory + "/MVC");
+                di = Directory.CreateDirectory(newDirectory + "/MVC/MXP_MVC_Application");
+            }
+
+            if (chkb_Script.IsChecked == true)
+            {
+                DirectoryInfo di = Directory.CreateDirectory(newDirectory + "/SCRIPT");
+            }
+
+            if (chkb_SP.IsChecked == true)
+            {
+                DirectoryInfo di = Directory.CreateDirectory(newDirectory + "/SP");
+            }
+
+            if (chkb_Web.IsChecked == true)
+            {
+                DirectoryInfo di = Directory.CreateDirectory(newDirectory + "/WEB");
+            }
+
             return returnValue;
+        }
+
+        private string removeChar(string str, char[] charsToRemove)
+        {
+            foreach (var c in charsToRemove)
+            {
+                str = str.Replace(c, '\0');
+            }
+
+            return str;
         }
     }
 }

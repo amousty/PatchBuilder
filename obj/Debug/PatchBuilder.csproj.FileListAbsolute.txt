@@ -1,0 +1,15 @@
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\bin\Debug\PatchBuilder.exe.config
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\bin\Debug\PatchBuilder.exe
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\bin\Debug\PatchBuilder.pdb
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder.csprojResolveAssemblyReference.cache
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\MainWindow.g.cs
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\App.g.cs
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder_MarkupCompile.cache
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder_MarkupCompile.lref
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\MainWindow.baml
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder.g.resources
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder.Properties.Resources.resources
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder.csproj.GenerateResource.Cache
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder.csproj.CoreCompileInputs.cache
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder.exe
+C:\Users\moust\Documents\GitHub\PatchBuilder\PatchBuilder\obj\Debug\PatchBuilder.pdb

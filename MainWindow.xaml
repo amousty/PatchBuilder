@@ -1,0 +1,27 @@
+﻿<Window x:Name="Patch_Builder" x:Class="PatchBuilder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PatchBuilder"
+        mc:Ignorable="d"
+        Title="MXP Patch builder" Height="350" Width="455.162">
+    <Grid>
+        <Label x:Name="lbl_patchName" Content="Patch name" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txtB_patchName" HorizontalAlignment="Left" Height="26" Margin="112,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
+        <Button x:Name="btn_build" Content="Build" HorizontalAlignment="Left" Margin="112,292,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btn_clearAll" Content="Clear data" HorizontalAlignment="Left" Margin="352,292,0,0" VerticalAlignment="Top" Width="75"/>
+        <CheckBox x:Name="chkb_MVC" Content="MVC" HorizontalAlignment="Left" Margin="112,144,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="lbl_patchType" Content="Type" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="75"/>
+        <CheckBox x:Name="chkb_SP" Content="SP" HorizontalAlignment="Left" Margin="192,144,0,0" VerticalAlignment="Top" Width="75"/>
+        <CheckBox x:Name="chkb_Script" Content="Script" HorizontalAlignment="Left" Margin="272,144,0,0" VerticalAlignment="Top" Width="75"/>
+        <CheckBox x:Name="chkb_Web" Content="Web" HorizontalAlignment="Left" Margin="352,144,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="lbl_issueID" Content="Issue ID" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtB_" HorizontalAlignment="Left" Height="26" Margin="112,10,0,0" TextWrapping="Wrap" Text="##" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lbl_description" Content="Description" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtB_description" HorizontalAlignment="Left" Height="26" Margin="112,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lbl_ticketRef" Content="Ticket reference" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtB_ticketRef" HorizontalAlignment="Left" Height="26" Margin="112,41,0,0" TextWrapping="Wrap" Text="SUP-" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

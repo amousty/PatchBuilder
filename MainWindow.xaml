@@ -18,7 +18,7 @@
         <CheckBox x:Name="chkb_Script" Content="Script" HorizontalAlignment="Left" Margin="112,142,0,0" VerticalAlignment="Top" Width="60"/>
         <CheckBox x:Name="chkb_Web" Content="Web" HorizontalAlignment="Left" Margin="177,142,0,0" VerticalAlignment="Top" Width="55"/>
         <Label x:Name="lbl_issueID" Content="Issue ID" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold"/>
-        <TextBox Controls:TextBoxHelper.ClearTextButton="True" x:Name="txtB_IssueID" HorizontalAlignment="Left" Height="26" Margin="112,10,0,0" TextWrapping="Wrap" Text="##" VerticalAlignment="Top" Width="120"/>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" x:Name="txtB_IssueID" HorizontalAlignment="Left" Height="26" Margin="112,10,0,0" TextWrapping="Wrap" Text="##" VerticalAlignment="Top" Width="120" LostFocus="txtB_IssueID_LostFocus"/>
         <Label x:Name="lbl_description" Content="Description" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold"/>
         <TextBox Controls:TextBoxHelper.ClearTextButton="True" x:Name="txtB_description" HorizontalAlignment="Left" Height="26" Margin="112,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lbl_ticketRef" Content="Ticket reference" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold"/>
